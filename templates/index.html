@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		{# 谜一样风格的编写方式，需要在setting.py中配置STATICFILES_DIRS才能使用。配合上面的{% load static %} #}
+		<link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
+		<script src="/static/js/index.js"></script>
+	</head>
+	<body>
+		<p style="color: blueviolet">这是一个页面</p>
+		<div />
+		<form action="/submit/" method="post">
+			<input type="text" name="username">
+			<input type="password" name="password">
+			{% csrf_token %}
+			<button type="submit" >提交</button>
+		</form>
+	</body>
+</html>
