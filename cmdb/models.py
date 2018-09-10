@@ -5,7 +5,6 @@ from django.db import models
 
 
 class MyTask(models.Model):
-	id = models.AutoField(primary_key=True)
 	pid = models.IntegerField()
 	flow_task_no = models.CharField(max_length=100)
 	order_code = models.CharField(max_length=100)

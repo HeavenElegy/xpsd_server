@@ -32,7 +32,7 @@ def submit(request):
 
 # 搜索数据
 def query(request):
-	orderCode = request.GET.get("id", None)
+	orderCode = request.GET.get("orderCode", None)
 	list = []
 
 	if orderCode != None:
