@@ -37,17 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cmdb',
+    'apps.workAssistant',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'system.customMiddlewareMixin.LoginInterceptor',
+    'system.customMiddlewareMixin.AuthenticationInterceptor',
 ]
 
 ROOT_URLCONF = 'XPZS.urls'
@@ -78,10 +80,10 @@ WSGI_APPLICATION = 'XPZS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test01',
+        'NAME': 'test2.0_0809',
         'USER': 'root',
-        'PASSWORD': 'lxx5701801',
-        'HOST': '127.0.0.1',
+        'PASSWORD': 'xpsd@123456789',
+        'HOST': '47.104.72.222',
         'PORT': '3306',
     }
 }

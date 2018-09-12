@@ -15,17 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from cmdb import views
+from apps.workAssistant.modules import test
+from apps.workAssistant.modules import common
+from apps.workAssistant.modules import interview
+from apps.workAssistant.modules import task
 
 urlpatterns = [
     # admin管理页面路由
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
 
-    path(r'helloWord/', views.helloWord),
+    path(r'helloWord/', test.helloWord),
+    path(r'index/', test.index),
+    path(r'submit/', test.submit),
+    path(r'query/', test.query),
 
-    path(r'index/', views.index),
 
-    path(r'submit/', views.submit),
-
-    path(r'query/', views.query),
+    path(r'login/', common.login),
 ]

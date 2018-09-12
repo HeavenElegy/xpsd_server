@@ -6,9 +6,10 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse
 # Model对象
 # TODO MVP分层存在问题
-from cmdb import models
+from apps.workAssistant.entities import entity
+
+
 # JSON支持
-import json
 
 
 # 打印HelloWord
@@ -36,5 +37,5 @@ def query(request):
 	list = []
 
 	if orderCode != None:
-		list = models.MyTask.objects.filter(order_code=orderCode)
+		list = entity.MyTask.objects.filter(order_code=orderCode)
 	return HttpResponse(serializers.serialize('json', list), 'application/json')

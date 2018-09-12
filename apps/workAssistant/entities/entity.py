@@ -4,6 +4,7 @@ from django.db import models
 # Create your models here.
 
 
+# 任务表
 class MyTask(models.Model):
 	pid = models.IntegerField()
 	flow_task_no = models.CharField(max_length=100)
@@ -77,3 +78,38 @@ class MyTask(models.Model):
 	class Meta:
 		managed = False
 		db_table = 'my_task'
+
+
+# 员工表
+class User(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    login_name = models.CharField(max_length=200, blank=True, null=True)
+    name = models.CharField(max_length=200, blank=True, null=True)
+    password = models.CharField(max_length=200, blank=True, null=True)
+    phone = models.CharField(max_length=200, blank=True, null=True)
+    sex = models.IntegerField()
+    age = models.IntegerField(blank=True, null=True)
+    email = models.CharField(max_length=200, blank=True, null=True)
+    referrer_mobile = models.CharField(max_length=40, blank=True, null=True)
+    position = models.CharField(max_length=1000, blank=True, null=True)
+    user_type = models.IntegerField()
+    status = models.IntegerField()
+    corp_code = models.CharField(max_length=64, blank=True, null=True)
+    organization_id = models.IntegerField(blank=True, null=True)
+    city = models.IntegerField(blank=True, null=True)
+    user_property = models.IntegerField(blank=True, null=True)
+    is_logginer = models.IntegerField(blank=True, null=True)
+    user_source = models.IntegerField(blank=True, null=True)
+    is_inquiry = models.IntegerField(blank=True, null=True)
+    wx_logname = models.CharField(max_length=255, blank=True, null=True)
+    openid = models.CharField(max_length=255, blank=True, null=True)
+    has_qrcode = models.CharField(max_length=1, blank=True, null=True)
+    create_time = models.DateTimeField()
+    create_by = models.CharField(max_length=64, blank=True, null=True)
+    update_time = models.DateTimeField(blank=True, null=True)
+    update_by = models.CharField(max_length=64, blank=True, null=True)
+    delete_flag = models.CharField(max_length=1, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'user'
