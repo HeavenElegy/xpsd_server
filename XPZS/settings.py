@@ -48,8 +48,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'system.customMiddlewareMixin.LoginInterceptor',
-    'system.customMiddlewareMixin.AuthenticationInterceptor',
+    'system.customMiddlewareMixin.LoginInterceptor',    #登陆拦截器
+    'system.customMiddlewareMixin.ConfusionInterceptor',    #混淆拦截器
+    'system.customMiddlewareMixin.AuthenticationInterceptor',   #鉴权拦截器
 ]
 
 ROOT_URLCONF = 'XPZS.urls'
