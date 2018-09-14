@@ -30,5 +30,5 @@ urlpatterns = [
     path(r'query/', test.query),
 
 
-    path(r'login/', common.login),
+    path(r'user/login/', common.login),
 ]

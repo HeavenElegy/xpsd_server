@@ -110,6 +110,7 @@ class User(models.Model):
     update_by = models.CharField(max_length=64, blank=True, null=True)
     delete_flag = models.CharField(max_length=1, blank=True, null=True)
 
+
     class Meta:
         managed = False
         db_table = 'user'

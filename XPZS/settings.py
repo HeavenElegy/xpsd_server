@@ -25,7 +25,7 @@ SECRET_KEY = '9h^1&2_8nqk+^i4b8rf7^(w%@bii=+uqzde13@3ur3(x6zt67r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -51,6 +51,8 @@ MIDDLEWARE = [
     'system.customMiddlewareMixin.LoginInterceptor',    #登陆拦截器
     'system.customMiddlewareMixin.ConfusionInterceptor',    #混淆拦截器
     'system.customMiddlewareMixin.AuthenticationInterceptor',   #鉴权拦截器
+    'system.customMiddlewareMixin.TransitionInterceptor',   #转换拦截器
+    # 'system.customMiddlewareMixin.ContentTypeInterceptor',   #鉴权拦截器
 ]
 
 ROOT_URLCONF = 'XPZS.urls'

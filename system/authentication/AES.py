@@ -21,19 +21,31 @@ def encrypt(plaintext):
     :return:    Base64密文字符串
 
     """
+
+    # btyes = plaintext.encode("UTF-8")
+
+    return plaintext.encode('UTF-8')
+
+
+def encryptBytes(data):
+    """
+    AES加密
+    :param data:   bytes类型
+    :return:    Base64密文字符串
+    """
+
     # 获取key
     key = getKeyBytes()
-    # print("密钥=>", array.array('b',key))
 
+    # 转换为bytearray。用于后续拼接补齐
+    data = bytearray(data)
     # 重构输入值。CBC模式下，明文长度必须是16的倍数
-    # btyes = plaintext.encode("UTF-8")
-    bytes = bytearray(plaintext, "UTF-8")
     length = 16
-    count = len(bytes)
+    count = len(data)
     y = count % length
-    if y!=0:
+    if y != 0:
         for i in range(0, 16 - y):
-            bytes.append(0)
+            data.append(0)
     # print("明文=>", array.array('b', bytes))
 
     # 构造向量
@@ -41,10 +53,10 @@ def encrypt(plaintext):
     # print("向量:", array.array('b', vi))
 
     # 创建加密实例
-    aes = AES.new(key,AES.MODE_CBC, vi)
+    aes = AES.new(key, AES.MODE_CBC, vi)
 
     # 进行加密
-    e = aes.encrypt(bytes)
+    e = aes.encrypt(data)
     # print("密文=>", array.array('b', e))
     # print("密文=>", base64Encode(e))
 
@@ -139,7 +151,7 @@ def base64Encode(src):
     :return:    base64字符串
     """
     if type(src)==bytes:
-        a = base64.encodebytes(src)
+        a = base64.b64encode(src)
     else:
-        a = base64.encodebytes(src.encode("UTF-8"))
+        a = base64.b64encode(src.encode("UTF-8"))
     return str(a, "UTF-8")
